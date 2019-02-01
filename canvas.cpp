@@ -1,4 +1,10 @@
 #include "canvas.h"
+#include "C_Line.h"
+#include "Circle.h"
+#include "Line.h"
+#include "Point.h"
+#include "Rectangle.h"
+#include "Shape.h"
 #include <iostream>
 using namespace std;
 
@@ -12,29 +18,7 @@ ostream& operator<<(ostream& os, color c)
 		case color::blue:		os << "Blue "; break;
 		case color::yellow:		os << "Yellow "; break;
 		case color::black:		os << "Black "; break;
-		default:				os << "No color ";
+		case color::no_color:	os << "No color "; break:
 	}
 	return os;
 }
-
-ostream& operator<<(ostream& os, const Point& p)
-{
-	os << '(' << p.x() << ',' << p.y() << ')';
-	return os;
-}
-
-void Line::draw() const
-{
-	cout << "No color Line from " << m_org << " To " << m_end << endl;;
-}
-
-double Line::length() const
-{
-	return sqrt((double)((m_org.x()-m_end.x())*(m_org.x()-m_end.x()) + (m_org.y()-m_end.y())*(m_org.y()-m_end.y())));
-}
-
-void C_Line::draw() const
-{
-	cout<< m_color << " Line from " << m_org << " To " << m_end <<endl;
-}
-
